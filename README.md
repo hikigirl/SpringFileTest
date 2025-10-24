@@ -29,34 +29,11 @@
 
 #### 파일, 패키지
 
-<!-- 
-##### src/main/java - 구현용
-- com.test.tiles(root)
-  - .controller
-    - `MainController.java`
-    - `MemberController.java`
-    - `AdminController.java`
+##### src/main/java - Controller
+- com.test.file.controller
+  - `FileController.java`
 
-##### src/main/webapp - View 관련
-- resources/css
-  - `main.css`
-- WEB-INF
-  - `web.xml` : tiles 세팅 XML 파일
+##### src/main/webapp - View
 - WEB-INF/views
-  - `index.jsp`
-  - /member : 주업무 코드만이 존재하는 조각 페이지
-    - `info.jsp`
-    - `history.jsp`
-    - `favorite.jsp`
-  - /admin : 주업무 코드만이 존재하는 조각 페이지
-    - `log.jsp`
-    - `setting.jsp`
-  - /inc : 조각 페이지
-    - `main_menu.jsp`: 주메뉴(상단)
-    - `member_menu.jsp`:보조메뉴(회원)
-    - `admin_menu.jsp`: 보조메뉴(관리자)
-    - `asset.jsp`
-  - /layout : 조각페이지 연결용 jsp 레이아웃 파일
-    - `member.jsp`
-    - `admin.jsp` 
--->
+  - `ex01.jsp`: 폼
+  - `ex01ok.jsp`: 완료&다운로드
