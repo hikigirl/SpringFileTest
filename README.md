@@ -10,7 +10,7 @@
 
 #### 자바 버전과 pom.xml 수정
 
-- 프로젝트 우클릭 -> Project Facets -> Java 11
+- 프로젝트 우클릭 -> Project Facets -> Java 11, Dynamic Web Module 3.1
 - properties 태그에 있는 java-version 11
 - 그 아래 스프링 버전 5.0.7.RELEASE로
 - 맨 아래쪽 plugin 태그 -> maven plugin 내부
@@ -21,21 +21,15 @@
 
 ---
 #### 파일 업로드 설정하기
-1. 파일 저장 폴더: `webapp`
+1. 파일 저장 폴더: `webapp/resources/files`
+2. `web.xml`
+3. `servlet-context.xml`
 
-
-##### 의존성 추가
-- Apache Tiles -> `pom.xml`
-
-##### Tiles 세팅하기
-- `servlet-context.xml`
-  - 기존에 있던 ViewResolver 관련 태그를 주석 처리하고 추가 설정된 태그로 변경
-- `/WEB-INF/web.xml`
-  - tiles 세팅 XML 파일
 ---
 
 #### 파일, 패키지
 
+<!-- 
 ##### src/main/java - 구현용
 - com.test.tiles(root)
   - .controller
@@ -64,4 +58,5 @@
     - `asset.jsp`
   - /layout : 조각페이지 연결용 jsp 레이아웃 파일
     - `member.jsp`
-    - `admin.jsp`
+    - `admin.jsp` 
+-->
