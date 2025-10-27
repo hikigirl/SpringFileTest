@@ -37,3 +37,5 @@
 - WEB-INF/views
   - `ex01.jsp`: 폼
   - `ex01ok.jsp`: 완료&다운로드
+  - `ex02.jsp`: 폼(다중파일)
+  - `ex02ok.jsp`: 완료&다운로드(다중파일)

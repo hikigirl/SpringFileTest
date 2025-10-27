@@ -3,8 +3,10 @@ package com.test.file.controller;
 import java.io.File;
 import java.util.UUID;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class FileController {
+	@Autowired
+	private ServletContext servletContext; //application 객체
+	
 	@GetMapping("/ex01.do")
 	public String ex01() {
 		return "ex01";
@@ -53,7 +58,77 @@ public class FileController {
 		
 		return "ex01ok";
 	}
+	
+	@GetMapping("/ex02.do")
+	public String ex02() {
+		return "ex02";
+	}
+	
+	@PostMapping("/ex02ok.do")
+	public String ex02ok(Model model, 
+						String txt, 
+						MultipartFile[] attach) {
+	
+		String path = servletContext.getRealPath("/resources/files");
+		
+		System.out.println(path);
+		
+		for (MultipartFile item : attach) {
+			try {
 
+				String filename = getUniqueFileName3(item.getOriginalFilename());
+				File file = new File(path + "\\" + filename);
+				item.transferTo(file); //이동시켜줌
+				
+				model.addAttribute("txt", txt);
+				model.addAttribute("attach", attach);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return "ex02ok";
+	}	
+	
+	@GetMapping("/ex03.do")
+	public String ex03() {
+		return "ex03";
+	}
+	@GetMapping("/ex04.do")
+	public String ex04() {
+		return "ex04";
+	}
+	@PostMapping("/ex04ok.do")
+	public int ex04ok(Model model, 
+						String txt, 
+						MultipartFile[] attach) {
+	
+		String path = servletContext.getRealPath("/resources/files");
+		
+		System.out.println(path);
+		
+		for (MultipartFile item : attach) {
+			try {
+
+				String filename = getUniqueFileName3(item.getOriginalFilename());
+				File file = new File(path + "\\" + filename);
+				item.transferTo(file); //이동시켜줌
+				
+				model.addAttribute("txt", txt);
+				model.addAttribute("attach", attach);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return 1;
+	}
+	
+	
 	private String getUniqueFileName3(String filename) {
 		// UUID
 		UUID uuid = UUID.randomUUID();
